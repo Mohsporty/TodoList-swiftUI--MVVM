@@ -18,6 +18,9 @@ struct ListView: View {
             ForEach(items) { item in
                 ListRowView(item: item)
             }
+            //buttom delet her and move item
+            .onDelete(perform: deletitem)
+            .onMove(perform: moveItem)
             
         }
         
@@ -31,6 +34,15 @@ struct ListView: View {
                                    destination: AddView())
             )
         }
+    func deletitem(indexSet: IndexSet){
+        items.remove(atOffsets: indexSet)
+    }
+  // this is for unmove butoon actions we creat functions here
+    
+    func moveItem(from : IndexSet, to : Int) {
+        items.move(fromOffsets: from    , toOffset: to)
+    }
+    
     }
     
     #Preview {
