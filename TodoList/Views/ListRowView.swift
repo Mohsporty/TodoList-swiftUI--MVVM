@@ -24,8 +24,8 @@ struct ListRowView: View {
 
 #Preview {
     
-    var item1 = ItemModel(title: " this is the First Title", isCompleted: false)
-    var item2 = ItemModel(title: "Secend item", isCompleted: true)
+    var item1 = ItemModel(title: " this is the First Title", iscompleted: false)
+    var item2 = ItemModel(title: "Secend item", iscompleted: true)
     
     Group {
         ListRowView(item: item1)
