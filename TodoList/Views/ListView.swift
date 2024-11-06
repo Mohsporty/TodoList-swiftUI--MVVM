@@ -14,7 +14,8 @@ struct ListView: View {
     var body: some View {
         ZStack{
             if listViewModel.items.isEmpty { 
-                          Text("No Items")
+                NoItemsView()
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
                     .font(.largeTitle)
                     
                     
