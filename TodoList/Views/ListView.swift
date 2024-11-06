@@ -12,19 +12,28 @@ struct ListView: View {
     @EnvironmentObject var listViewModel : ListViewModel
 
     var body: some View {
-        List {
-            ForEach(listViewModel.items) { item in
-                ListRowView(item: item)
-                    .onTapGesture {
-                        withAnimation(.linear) {
-                            listViewModel.updateItem(item: item)
-                        }
+        ZStack{
+            if listViewModel.items.isEmpty { 
+                          Text("No Items")
+                    .font(.largeTitle)
+                    
+                    
+            } else {
+                List {
+                    ForEach(listViewModel.items) { item in
+                        ListRowView(item: item)
+                            .onTapGesture {
+                                withAnimation(.linear) {
+                                    listViewModel.updateItem(item: item)
+                                }
+                            }
                     }
+                    //buttom delet her and move item
+                    .onDelete(perform: listViewModel.deletitem)
+                    .onMove(perform: listViewModel.moveItem)
+                    
+                }
             }
-            //buttom delet her and move item
-            .onDelete(perform: listViewModel.deletitem)
-            .onMove(perform: listViewModel.moveItem)
-            
         }
         
         // add the edit button and add buten in this page
