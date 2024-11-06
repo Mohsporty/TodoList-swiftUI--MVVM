@@ -10,7 +10,7 @@ import Foundation
 // immutable Struct 
 
 
-struct ItemModel: Identifiable { // Conform to Identifiable
+struct ItemModel: Identifiable, Codable { 
     let id: String
     let title: String
     let isCompleted: Bool
